@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GetExcel from './components/GetExcel';
+import CalculateAverage from './components/CalculateAverage';
 
 function App() {
   return (
-    <div className="App">
-      <GetExcel/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<GetExcel/> }/>
+        <Route path='/CalculateAverage' element={<CalculateAverage/>}/>
+      </Routes>
+    </BrowserRouter>
+      
   );
 }
 
