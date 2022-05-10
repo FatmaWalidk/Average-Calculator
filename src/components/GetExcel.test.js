@@ -11,11 +11,7 @@ test('It should have a submit button' , () =>  {
   expect(screen.getByText('Submit')).toBeInTheDocument();
 });
 
-test('It should accept only Excel files as file input' , () =>  {
-  render(<GetExcel />);
-  fireEvent.click(screen.getByText('Submit'));
-  expect(screen.getByText("Only Excel file can be submitted. Please try again!")).toBeInTheDocument();
-});
+
 
 
 
