@@ -1,0 +1,34 @@
+table { 
+    border-spacing: 1; 
+    border-collapse: collapse; 
+    background:white;
+    overflow:hidden;
+    max-width:900px; 
+    border-radius: 10px;
+    margin:0 auto;
+    position:relative;
+    color: #1E6C41;
+    font-weight: bold;
+    
+}
+  
+td,th{
+         padding:8px;
+         border-bottom: 50pt;
+         border:  2px solid #367C56;
+         
+}
+tbody tr:nth-child(even){
+    background-color: #7EAA92;
+    color: #fff;
+  }
+td{
+    text-align: center;
+}
+
+thead tr        { 
+      height:60px;
+      background:#367C56;
+      font-size:20px;
+      color: white;
+    }

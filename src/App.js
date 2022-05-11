@@ -6,12 +6,17 @@ import CalculateAverage from './components/CalculateAverage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<GetExcel/> }/>
-        <Route path='/CalculateAverage' element={<CalculateAverage/>}/>
-      </Routes>
-    </BrowserRouter>
+    <div className='all'>
+      <h1 className='header' > <b><span style={{padding:"25px"}}>AVERAGE</span>  <br/> CALCULATOR </b></h1> 
+     <div className="body" >
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<GetExcel/> }/>
+          <Route path='/CalculateAverage' element={<CalculateAverage/>}/>
+        </Routes>
+      </BrowserRouter>
+      </div>
+    </div>
       
   );
 }
