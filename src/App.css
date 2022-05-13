@@ -1,5 +1,5 @@
 .body {
-  background-color: #D9E4DD;
+  background-color: #d9e4dd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,17 +8,24 @@
   color: white;
 }
 
-.all{
-  background-color: #D9E4DD;
+.all {
+  background-color: #d9e4dd;
 }
 
-.header{
-  background-color: #1E6C41;
+.header {
+  background-color: #1e6c41;
   color: white;
   font-size: 35px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 15px 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.howTo {
+  font-size: 1rem;
+  text-decoration: underline;
+  cursor: pointer;
 }

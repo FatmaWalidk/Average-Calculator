@@ -1,6 +1,14 @@
 import React from "react";
 import * as XLSX from "xlsx";
 import { useState } from "react";
+import {
+  getFirestore,
+  addDoc,
+  doc,
+  documentId,
+  collection,
+} from "firebase/firestore";
+
 import { Data } from "./Data";
 import "./GetExcel.css";
 import excelimg from "./microsoft-excel-spreadsheet-computer-software-power-bi-behind-background-407ac0890c695e4663c28db85a05becd.png";
@@ -33,7 +41,30 @@ const GetExcel = () => {
       setExcelData(null);
     }
   };
+  const handleUpload = async (e) => {
+    var total = 0;
+    var studentScores = {};
 
+    excelData.forEach((eachData) => {
+      studentScores[eachData.stdNo] =
+        eachData.A1 * 0.3 + eachData.A2 * 0.3 + eachData.A3 * 0.4;
+
+      total += eachData.A1 * 0.3 + eachData.A2 * 0.3 + eachData.A3 * 0.4;
+    });
+    try {
+      const docRef = await addDoc(collection(getFirestore(), "docs"), {
+        avg: (total / excelData.length).toFixed(2),
+        scores: excelData.map((eachData) => ({
+          [eachData.stdNo]:
+            eachData.A1 * 0.3 + eachData.A2 * 0.3 + eachData.A3 * 0.4,
+        })),
+      });
+      alert("Successful.");
+    } catch (e) {
+      alert("Ooops.. Something went wrong");
+      console.log(e);
+    }
+  };
   return (
     <div>
       {excelData === null ? (
@@ -55,7 +86,23 @@ const GetExcel = () => {
           </button>
         </form>
       ) : (
-        <Data excelData={excelData} />
+        <>
+          <Data excelData={excelData} />
+          <div>
+            <button
+              onClick={() => {
+                setExcelData(null);
+                setExcelFile(null);
+              }}
+              className="button-19"
+            >
+              Reset
+            </button>
+            <button onClick={handleUpload} className="button-19 resetbtn">
+              Upload
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
