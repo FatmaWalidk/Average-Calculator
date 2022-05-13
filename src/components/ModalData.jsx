@@ -38,7 +38,7 @@ function ModalData({ showModalData, setshowModalData }) {
         </thead>
         <tbody>
           {showModalData.data.scores.map((eachScore, index) => (
-            <tr key={eachScore}>
+            <tr key={Object.keys(eachScore)[0]}>
               <td>{index + 1}</td>
               <td>{Object.keys(eachScore)[0]}</td>
               <td>{eachScore[Object.keys(eachScore)[0]]}</td>

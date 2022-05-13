@@ -61,7 +61,6 @@ function History() {
               <td>{index + 1}</td>
               <td
                 onClick={function () {
-                  console.log(eachData);
                   setshowModalData(eachData);
                 }}
               >
