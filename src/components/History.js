@@ -52,6 +52,7 @@ function History() {
             <th>S. No</th>
             <th>Id</th>
             <th>Average</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -66,6 +67,7 @@ function History() {
               >
                 {eachData.id}
               </td>
+              <td>{eachData.data.avg}</td>
               <td>
                 <button
                   onClick={function () {
