@@ -83,7 +83,7 @@ const GetExcel = () => {
             required
           ></input>
           <br /> <br />
-          <button class="button-18" type="submit" id="Submit">
+          <button className="button-18" type="submit" id="Submit">
             {" "}
             Submit{" "}
           </button>
@@ -95,6 +95,7 @@ const GetExcel = () => {
           <div>
             <button
               onClick={() => {
+                setuserMessage(null);
                 setExcelData(null);
                 setExcelFile(null);
               }}

@@ -25,6 +25,7 @@
   justify-content: space-between;
 }
 .howTo {
+  color: white;
   font-size: 1rem;
   text-decoration: underline;
   cursor: pointer;
