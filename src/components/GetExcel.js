@@ -16,7 +16,7 @@ import excelimg from "./microsoft-excel-spreadsheet-computer-software-power-bi-b
 const GetExcel = () => {
   const [excelFile, setExcelFile] = useState(null);
   const [excelData, setExcelData] = useState(null);
-
+  const [userMessage, setuserMessage] = useState(null);
   const handleFile = (e) => {
     let selectedFile = e.target.files[0];
     if (selectedFile) {
@@ -29,6 +29,7 @@ const GetExcel = () => {
   };
 
   const handleSubmit = (e) => {
+    setuserMessage(null);
     e.preventDefault();
     if (excelFile !== null) {
       const workbook = XLSX.read(excelFile, { type: "buffer" });
@@ -42,6 +43,7 @@ const GetExcel = () => {
     }
   };
   const handleUpload = async (e) => {
+    setuserMessage(null);
     var total = 0;
     var studentScores = {};
 
@@ -59,14 +61,15 @@ const GetExcel = () => {
             eachData.A1 * 0.3 + eachData.A2 * 0.3 + eachData.A3 * 0.4,
         })),
       });
-      alert("Successful.");
+      setuserMessage("successful. Data Uploaded.");
     } catch (e) {
-      alert("Ooops.. Something went wrong");
+      setuserMessage("OOps.. Something went wrong. " + e.code);
       console.log(e);
     }
   };
   return (
     <div>
+      {userMessage && <div className="usermessage">{userMessage}</div>}
       {excelData === null ? (
         <form className="form-group" autoComplete="off" onSubmit={handleSubmit}>
           <label htmlFor="Your Excel file:"></label>
@@ -87,6 +90,7 @@ const GetExcel = () => {
         </form>
       ) : (
         <>
+          {}
           <Data excelData={excelData} />
           <div>
             <button
