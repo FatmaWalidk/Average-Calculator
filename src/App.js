@@ -12,7 +12,7 @@ function App() {
     <div className="all">
       <div className="header">
         <h1>
-          <a href="/" style={{ color: "white" }}>
+          <a href="/" style={{ color: "white" ,textDecoration: 'none'}}>
             <span style={{ padding: "25px" }}>AVERAGE</span> <br /> CALCULATOR{" "}
           </a>
         </h1>
