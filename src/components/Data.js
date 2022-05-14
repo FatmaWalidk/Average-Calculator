@@ -27,7 +27,7 @@ export const Data = ({ excelData }) => {
             <th> Assessment 1</th>
             <th> Assessments 2</th>
             <th> Assessments 3</th>
-            <th> Total</th>
+            <th>Total</th>
           </tr>
         </thead>
         <tbody>
