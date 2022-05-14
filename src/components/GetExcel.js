@@ -57,6 +57,8 @@ const GetExcel = () => {
       const docRef = await addDoc(collection(getFirestore(), "docs"), {
         avg: (total / excelData.length).toFixed(2),
         scores: excelData.map((eachData) => ({
+          name: eachData.First_Name,
+          surname: eachData.Last_Name,
           [eachData.stdNo]:
             eachData.A1 * 0.3 + eachData.A2 * 0.3 + eachData.A3 * 0.4,
         })),

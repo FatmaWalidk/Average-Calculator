@@ -1,0 +1,12 @@
+.cancelBtn {
+  margin-right: 5px;
+  border-radius: 50%;
+  margin-left: auto;
+  font-size: 1.6rem;
+  color: black;
+  cursor: pointer;
+  padding: 0px 3px;
+}
+.cancelBtn:hover {
+  background-color: rgb(237, 236, 236);
+}

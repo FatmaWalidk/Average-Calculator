@@ -60,6 +60,7 @@ function History() {
             <tr key={eachData}>
               <td>{index + 1}</td>
               <td
+                style={{ cursor: "pointer" }}
                 onClick={function () {
                   setshowModalData(eachData);
                 }}
