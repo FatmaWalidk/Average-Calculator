@@ -7,7 +7,7 @@ import {
   deleteDoc,
   doc,
 } from "firebase/firestore";
-import { async } from "@firebase/util";
+
 import ModalData from "./ModalData";
 function History() {
   const [studentData, setstudentData] = useState([]);
@@ -44,7 +44,7 @@ function History() {
     }
   };
 
-  const exportData = async (exportData) => {
+  const exportData = (exportData) => {
     const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
       JSON.stringify(exportData)
     )}`;
