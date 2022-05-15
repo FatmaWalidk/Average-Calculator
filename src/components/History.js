@@ -43,6 +43,18 @@ function History() {
       console.log(e);
     }
   };
+
+  const exportData = async (exportData) => {
+    const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
+      JSON.stringify(exportData)
+    )}`;
+    const link = document.createElement("a");
+    link.href = jsonString;
+    link.download = exportData.id + ".json";
+
+    link.click();
+  };
+
   return (
     <div>
       <h3>Uploaded Docs</h3>
@@ -50,9 +62,10 @@ function History() {
         <caption className="headerDiv">Students Data</caption>
         <thead>
           <tr>
-            <th>S. No</th>
+            <th>S.No</th>
             <th>Id</th>
             <th>Average</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -76,6 +89,15 @@ function History() {
                   }}
                 >
                   X
+                </button>
+              </td>
+              <td>
+                <button
+                  onClick={function () {
+                    exportData(eachData);
+                  }}
+                >
+                  Download
                 </button>
               </td>
             </tr>
