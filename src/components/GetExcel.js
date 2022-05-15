@@ -78,10 +78,15 @@ const GetExcel = () => {
       {excelData === null ? (
         <form className="form-group" autoComplete="off" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="coursename">Course name: </label>
-            <input type="text" id="coursename" name="coursename" required />
+            <label htmlFor="coursename">Course name: &nbsp;</label>
+            <input
+              type="text"
+              id="coursename"
+              name="coursename"
+              className="inputname"
+              required
+            />
           </div>
-          <label htmlFor="excelfile">Your excel file</label>
           <img src={excelimg} width="200" height="200" />
           <br />
           <input

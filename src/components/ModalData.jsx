@@ -28,7 +28,7 @@ function ModalData({ showModalData, setshowModalData }) {
       </div>
       <table>
         <caption>
-          {showModalData.id} <br />
+          {showModalData.data.courseName} <br />
           Avg: {showModalData.data.avg}
         </caption>
         <thead>
