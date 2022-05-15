@@ -83,16 +83,7 @@ function History() {
                 {eachData.data.courseName}
               </td>
               <td>{eachData.data.avg}</td>
-              <td>
-                <button
-                  className="history__deleteBtn"
-                  onClick={function () {
-                    deleteData(eachData.id);
-                  }}
-                >
-                  X
-                </button>
-              </td>
+
               <td>
                 <button
                   className="history__downloadBtn"
@@ -101,6 +92,16 @@ function History() {
                   }}
                 >
                   Download
+                </button>
+              </td>
+              <td>
+                <button
+                  className="history__deleteBtn"
+                  onClick={function () {
+                    deleteData(eachData.id);
+                  }}
+                >
+                  X
                 </button>
               </td>
             </tr>
