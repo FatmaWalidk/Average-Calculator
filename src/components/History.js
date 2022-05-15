@@ -45,6 +45,7 @@ function History() {
   };
   return (
     <div>
+      <h3>Uploaded Docs</h3>
       <table>
         <caption className="headerDiv">Students Data</caption>
         <thead>
