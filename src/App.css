@@ -30,3 +30,10 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.history__deleteBtn {
+  border: none;
+}
+.history__downloadBtn {
+  border: none;
+}

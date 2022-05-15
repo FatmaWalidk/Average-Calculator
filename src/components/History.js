@@ -8,6 +8,7 @@ import {
   doc,
 } from "firebase/firestore";
 
+import "../App.css";
 import ModalData from "./ModalData";
 function History() {
   const [studentData, setstudentData] = useState([]);
@@ -50,7 +51,7 @@ function History() {
     )}`;
     const link = document.createElement("a");
     link.href = jsonString;
-    link.download = exportData.id + ".json";
+    link.download = exportData.data.courseName + "Results.json";
 
     link.click();
   };
@@ -63,7 +64,7 @@ function History() {
         <thead>
           <tr>
             <th>S.No</th>
-            <th>Id</th>
+            <th>Course Name</th>
             <th>Average</th>
             <th></th>
             <th></th>
@@ -79,11 +80,12 @@ function History() {
                   setshowModalData(eachData);
                 }}
               >
-                {eachData.id}
+                {eachData.data.courseName}
               </td>
               <td>{eachData.data.avg}</td>
               <td>
                 <button
+                  className="history__deleteBtn"
                   onClick={function () {
                     deleteData(eachData.id);
                   }}
@@ -93,6 +95,7 @@ function History() {
               </td>
               <td>
                 <button
+                  className="history__downloadBtn"
                   onClick={function () {
                     exportData(eachData);
                   }}
