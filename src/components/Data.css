@@ -3,12 +3,15 @@ table {
     border-collapse: collapse; 
     background:white;
     overflow:hidden;
-    max-width:900px; 
+    max-width:1000px; 
     border-radius: 10px;
     margin:0 auto;
     position:relative;
     color: #1E6C41;
     font-weight: bold;
+    color: black;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
     
 }
   
@@ -20,7 +23,7 @@ td,th{
 }
 tbody tr:nth-child(even){
     background-color: #7EAA92;
-    color: #fff;
+    color: black;
   }
 td{
     text-align: center;
