@@ -17,6 +17,7 @@ const GetExcel = () => {
   const [excelFile, setExcelFile] = useState(null);
   const [excelData, setExcelData] = useState(null);
   const [userMessage, setuserMessage] = useState(null);
+  const [courseName, setcourseName] = useState("");
   const handleFile = (e) => {
     let selectedFile = e.target.files[0];
     if (selectedFile) {
@@ -37,6 +38,7 @@ const GetExcel = () => {
       const worksheet = workbook.Sheets[worksheetName];
       const data = XLSX.utils.sheet_to_json(worksheet);
       setExcelData(data);
+      setcourseName(e.target.coursename.value);
       console.log(data);
     } else {
       setExcelData(null);
@@ -56,6 +58,7 @@ const GetExcel = () => {
     try {
       const docRef = await addDoc(collection(getFirestore(), "docs"), {
         avg: (total / excelData.length).toFixed(2),
+        courseName: courseName,
         scores: excelData.map((eachData) => ({
           name: eachData.First_Name,
           surname: eachData.Last_Name,
@@ -74,13 +77,17 @@ const GetExcel = () => {
       {userMessage && <div className="usermessage">{userMessage}</div>}
       {excelData === null ? (
         <form className="form-group" autoComplete="off" onSubmit={handleSubmit}>
-          <label htmlFor="Your Excel file:"></label>
+          <div>
+            <label htmlFor="coursename">Course name: </label>
+            <input type="text" id="coursename" name="coursename" required />
+          </div>
+          <label htmlFor="excelfile">Your excel file</label>
           <img src={excelimg} width="200" height="200" />
           <br />
           <input
             type="file"
             accept=".xlsx, .xls, .csv"
-            id="Your Excel file:"
+            id="excelfile"
             onChange={handleFile}
             required
           ></input>
